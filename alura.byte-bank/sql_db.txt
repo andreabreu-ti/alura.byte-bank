@@ -1,0 +1,40 @@
+-- Database: alura.byte_bank
+
+-- DROP DATABASE IF EXISTS "alura.byte_bank";
+
+CREATE DATABASE "alura.byte_bank"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Portuguese_Brazil.1252'
+    LC_CTYPE = 'Portuguese_Brazil.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+    
+    
+-- Table: public.conta
+
+-- DROP TABLE IF EXISTS public.conta;
+
+CREATE TABLE IF NOT EXISTS public.conta
+(
+    numero integer NOT NULL,
+    saldo numeric,
+    cliente_nome character varying(50) COLLATE pg_catalog."default",
+    cliente_cpf character varying(11) COLLATE pg_catalog."default",
+    cliente_email character varying(50) COLLATE pg_catalog."default",
+    esta_ativa boolean DEFAULT true
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.conta
+    OWNER to postgres;
+
+
+
+
+alter table conta add column esta_ativa boolean default true;
+
+select * from conta;
